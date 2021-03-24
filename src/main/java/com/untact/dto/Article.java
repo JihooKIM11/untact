@@ -1,63 +1,38 @@
 package com.untact.dto;
 
-public class Article {
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data                // getter,setter, toString
+@AllArgsConstructor  // 생성자
+@NoArgsConstructor   // 인자가 없는 생성자
+public class Article extends EntityDto {
 	
+	// 중요한 순서로 나열
 	private int id;
 	private String regDate;
+	private String updateDate;
+	private int boardId;
+	private int memberId;
 	private String title;
 	private String body;
+
+	private String extra__writer;
+	private String extra__boardName;
+	private String extra__thumbImg;
 	
-	public Article(int id, String regDate, String title, String body) {
-		this.id = id;
-		this.regDate = regDate;
-		this.title = title;
-		this.body = body;
+	public String getWriterThumbImgUrl() {
+		return "/common/genFile/file/member/" + memberId + "/common/attachment/1";
 	}
 	
 	
 	
 	
+	
+	
 
-	@Override
-	public String toString() {
-		return "Article [id=" + id + ", regDate=" + regDate + ", title=" + title + ", body=" + body + "]";
-	}
-
-
-
-
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getBody() {
-		return body;
-	}
-
-	public void setBody(String body) {
-		this.body = body;
-	}
 	
 	
 	
